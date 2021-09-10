@@ -2,7 +2,7 @@ const seeder = require('mongoose-seed');
 const mongoose = require('mongoose');
 
 // Connect to MongoDB via Mongoose
-seeder.connect('mongodb://127.0.0.1:27017/db_rofafood',{
+seeder.connect('mongodb+srv://mraAdmin:rofafood@cluster0.5gzkx.mongodb.net/db_rofafood?retryWrites=true&w=majority',{
   useNewUrlParser: true,
   useCreateIndex: true,
   useFindAndModify: true,

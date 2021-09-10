@@ -96,14 +96,15 @@ module.exports = {
     } catch (error) {
       res.status(400).json({ message: error.message });
     }
+    // const cekId = await Keranjangs.findById(req.params.id);
+    // if (!cekId) return res.status(404).json({ message: "Data tidak ditemukan" });
     // try {
-    //   const {id} = req.params;
-    //   const {jumlah, total_harga} = req.body;
-    //   const keranjangDetail = await Keranjangs.findOne({ _id: id }).populate({path: 'id_product', select: 'id nama'});
-    //   keranjangDetail.jumlah = jumlah;
-    //   keranjangDetail.total_harga = total_harga;
-    //   await keranjangDetail.save();
-    //   res.status(200).json(keranjangDetail);
+    //   const {jumlah,total_harga} = req.body;
+    //   const keranjangDetail = await Keranjangs.updateOne({ _id: req.params.id }, { $set: req.body });
+    //   const product = await Products.find();
+      
+    //   // await keranjangDetail.save();
+    //   return res.status(200).json(keranjangDetail);
     // } catch (error) {
     //   res.status(400).json({ message: error.message });
     // }

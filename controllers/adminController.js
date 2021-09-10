@@ -1,12 +1,10 @@
 const Categories = require('../models/Categories');
 const Products = require('../models/Products');
 const Keranjangs = require('../models/Keranjangs');
-// const Pesanans = require('../models/Pesanans');
 const Users = require('../models/Users');
 const fs = require('fs-extra');
 const path = require('path');
 const bcrypt = require('bcryptjs');
-
 
 module.exports = {
 
@@ -35,13 +33,13 @@ module.exports = {
       if (!user) {
         req.flash('alertMessage', 'User yang anda masukan tidak ada!!');
         req.flash('alertStatus', 'danger');
-        res.redirect('/admin/signin');
+        return res.redirect('/admin/signin');
       }
       const isPasswordMatch =  await bcrypt.compare(password, user.password);
       if (!isPasswordMatch) {
         req.flash('alertMessage', 'Password yang anda masukan tidak cocok!!');
         req.flash('alertStatus', 'danger');
-        res.redirect('/admin/signin');
+        return res.redirect('/admin/signin');
       }
 
       req.session.user = {

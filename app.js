@@ -9,7 +9,7 @@ const flash = require('connect-flash');
 const cors = require('cors');
 // koneksi database
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/db_rofafood', { 
+mongoose.connect('mongodb+srv://mraAdmin:rofafood@cluster0.5gzkx.mongodb.net/db_rofafood?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
