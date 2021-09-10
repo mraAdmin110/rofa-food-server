@@ -1,0 +1,38 @@
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold text-primary">Data Pesanan</h6>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+          <tr>
+            <th>No </th>
+            <th>Nama Product</th>
+            <th>Total Bayar</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(let i=0; i < pesanan.length; i++) {%>
+            <tr>
+              <td>
+                <%= i + 1 %>
+              </td>
+              <td>
+                <%= pesanan[i].id_keranjang.nama %>
+              </td>
+              <td>
+                Rp. <%= pesanan[i].total_bayar %>
+              </td>
+              <td>
+                <a href="#" class="btn btn-success btn-sm">Edit</a>
+              </td>
+            </tr>
+            <% } %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

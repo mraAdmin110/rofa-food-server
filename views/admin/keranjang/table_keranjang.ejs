@@ -1,0 +1,65 @@
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold text-primary">Data Keranjang</h6>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+          <tr>
+            <th>No </th>
+            <th>Nama Product</th>
+            <th>Jumlah</th>
+            <th>Total Harga</th>
+            <Th>Total Bayar</Th>
+            <th>Status</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(let i=0; i < keranjang.length; i++) {%>
+            <tr>
+              <td>
+                <%= i + 1 %>
+              </td>
+              <td>
+                <%= keranjang[i].id_product.nama %>
+              </td>
+              <td>
+                <%= keranjang[i].jumlah %>
+              </td>
+              <td>
+                Rp. <%= keranjang[i].total_harga %>
+              </td>
+              <td>
+                Rp. <%= keranjang[i].total_bayar %>
+              </td>
+              <td>
+                <%= keranjang[i].status %>
+              </td>
+              <td>
+                <% if(keranjang[i].status == 'Proses' ) {%>
+                  <form action="/admin/keranjang/<%= keranjang[i].id %>/confirmation?_method=PUT" method="POST">
+                    <button type="submit" class="btn btn-success btn-sm">
+                      <i class="fas fa-check"></i>
+                      Konfirmasi
+                    </button>   
+                  </form>
+                  <form action="/admin/keranjang/<%= keranjang[i].id %>/reject?_method=PUT" method="POST" class="ml-2">
+                    <button type="submit" class="btn btn-danger btn-sm">
+                      <i class="fas fa-times"></i>
+                      Tolak
+                    </button>
+                  </form>
+                <% } %>
+                <!-- <% if(keranjang.status !=='Reject' ) {%>
+                <% } %> -->
+              </td>
+            </tr>
+            <% } %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
